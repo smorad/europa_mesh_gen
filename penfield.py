@@ -60,4 +60,5 @@ def create_field2():
 if __name__ == '__main__':
     field = create_field()
     penitentes(field)
+    save(field, 'penfield')
 

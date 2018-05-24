@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import bpy
 import bmesh
 import random
@@ -308,6 +309,11 @@ def split_cave3(cave):
         
     #bpy.ops.mesh.separate(type='LOOSE')
 
+def save(cave, descriptor='cave'):
+    import time
+    path = '/tmp/autogen-{}-{}.obj'.format(descriptor, time.time())
+    print('Writing {} to {}'.format(descriptor, path))
+    bpy.ops.export_scene.obj(filepath=path)
 
 
 if __name__ == '__main__':
@@ -321,3 +327,4 @@ if __name__ == '__main__':
         penitentes(cave)
     #split_cave3(cave)
     #split_original_cube(cave)
+    save(cave)
